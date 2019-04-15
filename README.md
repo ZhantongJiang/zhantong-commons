@@ -12,7 +12,7 @@ $ npm install zhantong-commons
 2. import email(方法名) from 'zhantong-commons/email(方法名)'  
 该方式在build的过程中只会打包在项目中使用的方法，相对方法1来说能够缩小项目编译后的体积，**推荐使用**。
 ### API
-* 一、基于el-form的表单校验方法
+一、基于el-form的表单校验方法
 ```
 template:
 <el-form :model="formData" ref="formData" :rules="rules">
@@ -88,7 +88,7 @@ export default {
 9. moreThan1Integer 校验大于1的整数  
 使用场景：卡片数量  
 默认提示语：请输入大于1的整数
-* 二、方法（filter方法）
+二、方法（filter方法）
 1. throttle节流  
 防止某函数调用次数过多阻塞渲染进程，采取的每间隔一段时间再次执行的机制。  
 参数：
@@ -124,7 +124,7 @@ export default {
 参数：
 * val 转换目标
 * precision 精确数位，默认保留两位小数，暂定最多支持9位小数
-* type 转换方式，默认round四舍五入，同时支持ceil向上取整、floor向下取整
+* type 转换方式，默认round四舍五入，同时支持ceil向上取整、floor向下取整  
 返回值：返回转换后的数字所对应的字符串。 
 使用场景：数字、流量转换
 ```
