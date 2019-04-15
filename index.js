@@ -9,5 +9,6 @@ exports = {
   ['moreThan0Integer']: require('./moreThan0Integer'),
   ['moreThan1Integer']: require('./moreThan1Integer'),
   ['throttle']: require('./throttle'),
+  ['toNumber']: require('./toNumber'),
 }
 

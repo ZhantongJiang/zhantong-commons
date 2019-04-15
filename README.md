@@ -90,6 +90,10 @@ export default {
 默认提示语：请输入大于1的整数
 * 二、方法（filter方法）
 1. throttle节流  
+防止某函数调用次数过多阻塞渲染进程，采取的每间隔一段时间再次执行的机制。  
+参数：
+* fun 用于节流的函数
+* wait 间隔的时间
 使用场景：窗口resize监听事件……等
 ```
 <script>
@@ -115,4 +119,50 @@ export default {
 }
 </script>
 ```
-未完待续……
+2. [toNumber](https://github.com/ZhantongJiang/-Notes-toNumber)  
+完成Boolean、Null、String转换为Number类型，并支持以向上取整、向下取整、四舍五入的方式保留指定数位。  
+参数：
+* val 转换目标
+* precision 精确数位，默认保留两位小数，暂定最多支持9位小数
+* type 转换方式，默认round四舍五入，同时支持ceil向上取整、floor向下取整
+返回值：返回转换后的数字所对应的字符串。 
+使用场景：数字、流量转换
+```
+filters方式
+template:
+<el-table-column label="套内资费/元" width="90">
+  <template slot-scope="scope">
+    {{ scope.row.lastshelvesStandardmealgoods ? (scope.row.lastshelvesStandardmealgoods.price | toNumber) : '--' }}
+  </template>
+</el-table-column>
+
+script:
+<script>
+import toNumber from 'zhantong-commons/toNumber'
+export default {
+  filters: {
+    toNumber
+  }
+}
+</script>
+```
+```
+methods方式
+template:
+<el-table-column label="套内资费/元" width="90">
+  <template slot-scope="scope">
+    {{ scope.row.lastshelvesStandardmealgoods ? toNumber(scope.row.lastshelvesStandardmealgoods.price, 1, 'ceil') : '--' }}
+  </template>
+</el-table-column>
+
+script:
+<script>
+import toNumber from 'zhantong-commons/toNumber'
+export default {
+  methods: {
+    toNumber
+  }
+}
+</script>
+```
+未完待续（返回字符所占宽度）……
